@@ -81,15 +81,15 @@ export class ApplicationPortal extends React.Component {
   }
 
   render () {
-    const { job, handleSubmit } = this.props
+    const { job, applicant, handleSubmit } = this.props
     const { submitting, application_complete } = this.state
 
     return (
       <div className="row">
         {!application_complete && <div className="col-md-12 form-container">
           <div className="header-block">
-            <h2>Alright, time to show us what you've got!</h2>
-            <p>Please provide your years of experience in the following areas:</p>
+            <h2>Hi {applicant.first_name}. You're application is almost done!</h2>
+            <h5>Please provide your years of experience in the following areas:</h5>
           </div>
 
           <form onSubmit={handleSubmit(this.submit)}>
@@ -107,8 +107,8 @@ export class ApplicationPortal extends React.Component {
 
         {application_complete && <div className="col-md-12 form-container">
           <div className="header-block">
-            <h2>Thank you for submitting your application for: {job.title}!</h2>
-            <p>You will hear from us within a week with more information about your application</p>
+            <h2>You're a rockstar! Thanks for applying for: {job.title}!</h2>
+            <h5>You will hear from us within a week with more information about your application</h5>
           </div>
         </div>}
       </div>

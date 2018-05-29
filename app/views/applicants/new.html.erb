@@ -1,8 +1,75 @@
-<div class="container">
+<div class="container col-md-8">
   <div class="row">
-    <div class="col-sm-12 col-md-4">
+    <div class="col-sm-12">
+      <h1>Welcome to your next opportunity!</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>Job Title</h2>
+      <h4><%= @job.title %></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Description</h3>
+      <p><%= @job.description %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Qualifications</h5>
+      <p>
+        <ul>
+          <% @job.qualifications.each do |qualification| %>
+            <li><%= qualification %></li>
+          <% end %>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Benefits Available</h5>
+      <p>
+        <ul>
+          <% @job.benefits.each do |benefit| %>
+            <li><%= benefit %></li>
+          <% end %>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Key Experience</h3>
+      <p>
+        <ul>
+          <% @job.experiences.each do |experience| %>
+            <li><%= experience %></li>
+          <% end %>
+        </ul>
+      </p>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<div class="container col-md-4">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Please fill out the following details to apply for this job</h3>
       <div class="">
         <%= form_for :applicant, url: '/applicants' do |f| %>
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
 
           <%= f.fields_for :account_attributes do |account_fields| %>
             <div class="form-group">
@@ -16,17 +83,7 @@
             </div>
           <% end %>
 
-          <div class="form-group">
-            <%= f.label :first_name %>
-            <%= f.text_field :first_name, class: 'form-control' %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :last_name %>
-            <%= f.text_field :last_name, class: 'form-control' %>
-          </div>
-
-          <%= f.submit "Submit", class: 'btn btn-primary' %>
+          <%= f.submit "Apply for this job", class: 'btn btn-primary btn-block' %>
         <% end %>
       </div>
     </div>

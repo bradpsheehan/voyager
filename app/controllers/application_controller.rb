@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_account
 
   def authorize
-    redirect_to '/login' unless current_account
+    redirect_to root_path unless current_account
   end
 end
