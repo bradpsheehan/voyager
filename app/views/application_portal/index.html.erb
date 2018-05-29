@@ -1,0 +1,14 @@
+<%= javascript_tag do %>
+  var applicationPortalConfig = function() {
+  return (
+  <%= {
+          applicant: current_account.user,
+          job: @job,
+      }.to_json.html_safe %>
+  )
+  }
+<% end %>
+
+<div class="container" id="application-portal"></div>
+
+<%= javascript_pack_tag 'application' %>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+      <div class="">
+        <%= form_for :applicant, url: '/applicants' do |f| %>
+
+          <%= f.fields_for :account_attributes do |account_fields| %>
+            <div class="form-group">
+              <%= account_fields.label :email %>
+              <%= account_fields.text_field :email, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= account_fields.label :password %>
+              <%= account_fields.password_field :password, class: 'form-control' %>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+
+          <%= f.submit "Submit", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
