@@ -1,6 +1,6 @@
 class CreateAccounts < ActiveRecord::Migration[5.2]
   def change
-    create_table :applicants do |t|
+    create_table :accounts do |t|
       t.string :email, limit: 255, index: true, unique: true
       t.string :password_digest, limit: 255
 
