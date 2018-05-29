@@ -6,8 +6,10 @@ You can kick the tires here:
 https://job-voyager.herokuapp.com/
 
 ### Prerequisites
-ruby '2.5.1': Install ruby using your ruby version manager of choice (e.g. chruby, rvm)
+ruby 2.5.1: Install ruby using your ruby version manager of choice (e.g. chruby, rvm)
+
 rails 5.2: `gem install rails`
+
 yarn: `brew install yarn`
 
 ### Setup
